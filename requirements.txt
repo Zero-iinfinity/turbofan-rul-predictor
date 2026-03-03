@@ -4,5 +4,5 @@ tensorflow==2.20.0
 scikit-learn==1.5.1
 streamlit==1.38.0
 plotly==5.24.0
-reportlab==4.0.0
+reportlab==3.6.13
 keras==3.10.0
