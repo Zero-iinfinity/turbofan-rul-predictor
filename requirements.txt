@@ -5,4 +5,5 @@ scikit-learn==1.5.1
 streamlit==1.42.0
 plotly==5.24.0
 keras==3.10.0
+tf_keras
 
