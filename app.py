@@ -6,6 +6,7 @@ import pickle
 from utils.preprocess import make_test_sequences
 from utils.predict import predict_rul
 import os
+import tf_keras
 
 st.set_page_config(page_title="RUL Predictor", layout="wide")
 
@@ -101,14 +102,14 @@ left, right, a, b = st.columns(4)
 if left.button("Model 1"):
     st.session_state.WINDOW_SIZE = 7
     st.session_state.HORIZON = 1
-    st.session_state.model = tf.keras.models.load_model('model/model_w7.h5')
+    st.session_state.model = tf_keras.models.load_model('model/model_w7.h5')
     with open('scaler/scaler.pkl', "rb") as f:
         st.session_state.scaler = pickle.load(f)
 
 if right.button("Model 2"):
     st.session_state.WINDOW_SIZE = 30
     st.session_state.HORIZON = 1
-    st.session_state.model = tf.keras.models.load_model('model/model_w30.h5')
+    st.session_state.model = tf_keras.models.load_model('model/model_w30.h5')
     with open('scaler/scaler.pkl', "rb") as f:
         st.session_state.scaler = pickle.load(f)
 
@@ -209,4 +210,5 @@ if st.button("Predict RUL", type="primary"):
             file_name="rul_predictions.csv",
             mime="text/csv",
             type="primary"
+
         )
